@@ -8,7 +8,7 @@ const validateUniqueUsername = async (req, res, next) => {
         const user = await Users.get()        
         user.map(each => {
                 if ( each.username === username ) {
-                    next({ status: 406, message: "username taken" })
+                    next({ status: 400, message: "username taken" })
                 }
             })
     next()
